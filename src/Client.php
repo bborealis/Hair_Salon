@@ -56,6 +56,19 @@
             $this->setId($result_id);
         }
 
+        function update($new_name, $new_phone)
+        {
+            $GLOBALS['DB']->exec("UPDATE clients SET name = '{new_name}', phone = '{new_phone}' WHERE id = {this->getId()};");
+            $this->setName($new_name);
+            $this->setPhone($new_phone);
+        }
+
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM clients WHERE id = {$this->getId()};");
+        }
+
+
         static function getAll()
         {
             $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients;");
@@ -89,12 +102,6 @@
             return $found_client;
         }
 
-        function update($new_name, $new_phone)
-        {
-            $GLOBALS['DB']->exec("UPDATE clients SET name = '{new_name}', phone = '{new_phone}' WHERE id = {this->getId()};");
-            $this->setName($new_name);
-            $this->setPhone($new_phone);
-        }
 
     }
 ?>
