@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Hair Salon</title>
+        <link rel="stylesheet"      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class='container'>
+            <h1>Stylists</h1>
+            <p>Enter a new stylist:</p>
+
+            <form action='/stylists' method='post'>
+                <div class = 'form-group'>
+                    <label for='name'></label>
+                    <input id='name' class='form-control' placeholder='Stylist Name' name='name'
+                    type='text'>
+                    <label for='phone'></label>
+                    <input id='phone' class='form-control' placeholder='Stylist Phone Number' name='phone' type='text'>
+                    <button type='submit' class='btn'>Add Stylist</button>
+                </div>
+            </form>
+
+            {% if stylists is not empty %}
+                <p>Here are the stylists:</p>
+                <ul>
+                    {% for stylist in stylists %}
+                    <form action='/stylists/{{ stylist.getId }}' method='post'>
+                        <input name='_method' type='hidden' value='delete'>
+                        <li><h4><a href='stylists/{{ stylist.getId }}'>{{ stylist.getName }}</a></li>
+                            <ul>
+                                <li>{{ stylist.getPhone }}</li>
+                            </ul>
+
+                    {% endfor %}
+                </ul>
+            </form>
+
+            {% else %}
+                <p>There are no stylists yet!</p>
+                {% endif %}
+
+
+
+
+
+
+        </div>
+    </body>
+</html>
