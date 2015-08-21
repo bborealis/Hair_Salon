@@ -34,9 +34,26 @@
             return $this->phone;
         }
 
+        function setId($new_id)
+        {
+            $this->id = $new_id;
+        }
+
+        function getId()
+        {
+            return $this->id;
+        }
+
         function getClientId()
         {
             return $this->client_id;
+        }
+
+        function save()
+        {
+            $GLOBALS['DB']->exec("INSERT INTO clients (name, phone, client_id) VALUES ('{$this->getName()}', '{$this->getPhone()}', {$this->getPhone()});");
+            $result_id = $GLOBALS['DB']->lastInsertId();
+            $this->setId($result_id);
         }
 
 
