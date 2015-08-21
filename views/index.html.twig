@@ -27,14 +27,19 @@
                     {% for stylist in stylists %}
                     <form action='/stylists/{{ stylist.getId }}' method='post'>
                         <input name='_method' type='hidden' value='delete'>
-                        <li><h4><a href='stylists/{{ stylist.getId }}'>{{ stylist.getName }}</a></li>
+                        <li><h4><a href='stylists/{{ stylist.getId }}'>{{ stylist.getName }}</a>
+                            <a class="btn btn-success btn-xs" href="/stylists/{{ stylist.getId }}/edit" role="button">Update</a></li>
                             <ul>
                                 <li>{{ stylist.getPhone }}</li>
                             </ul>
 
+
                     {% endfor %}
                 </ul>
-            </form>
+                    </form>
+                    <form action='/delete_stylists' method='post'>
+                        <button type='submit'>Clear All Stylists</button>
+                    </form>
 
             {% else %}
                 <p>There are no stylists yet!</p>

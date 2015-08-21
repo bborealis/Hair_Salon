@@ -66,7 +66,7 @@
 
         function update($new_name, $new_phone)
         {
-            $GLOBALS['DB']->exec("UPDATE stylists SET name = '{new_name}', phone = '{new_phone}' WHERE id = {this->getId()};");
+            $GLOBALS['DB']->exec("UPDATE stylists SET name = '{$new_name}', phone = '{$new_phone}' WHERE id = {$this->getId()};");
             $this->setName($new_name);
             $this->setPhone($new_phone);
         }
@@ -74,6 +74,7 @@
         function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM clients WHERE stylist_id = {$this->getId()};");
         }
 
         static function getAll()

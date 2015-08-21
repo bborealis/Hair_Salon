@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Stylist Edit</title>
+        <link rel="stylesheet"      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+
+        <div class='container'>
+            <h1>Edit {{ stylist.getName }}</h1>
+
+            <form action="/stylists/{{ stylist.getId }}" method='post'>
+                <input name='_method' type='hidden' value='patch'>
+
+                <label for='name'>Rename stylist:</label>
+                <input id='name' name='name' type='text'>
+
+                <label for='phone'>Update phone number:</label>
+                <input id='phone' name='phone' type='text'>
+
+                <button type='submit'>Update</button>
+            </form>
+
+            <form action="/stylists/{{ stylist.getId }}" method="post">
+                <input name="_method" type="hidden" value="delete">
+
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+
+
+
+    </body>
+</html>
