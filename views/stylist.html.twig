@@ -4,7 +4,44 @@
         <link rel="stylesheet"      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     </head>
     <body>
-        <div class='container'
+        <div class='container'>
+            <h1>{{ stylist.getName }}</h1>
+            <hr>
+            <p>Enter a new client:</p>
 
+            <form action='/clients' method='post'>
+                <input id='sylist_id' class='form-control' name='stylist_id' type='hidden' value='{{ stylist.getId() }}'>
+                <div class='form-group'>
+                    <label for='name'></label>
+                    <input id='name' class='form-control' placeholder='Client Name' name='name' type='text'>
+                    <br>
+                    <label for='phone'></label>
+                    <input id='phone' class='form-control' placeholder='Client Phone' name='phone' type='text'>
+                    <br>
+                    <button type='submit' class='btn'>Add Client</button>
+                    <a class= 'btn' href='/' role='button'>Home</a>
+
+                </div>
+            </form>
+
+
+            {% if clients is not empty %}
+                <p>Here are the clients:</p>
+                <ul>
+                    {% for client in clients %}
+                        <li>{{ client.getName }}</li>
+                        <ul>
+                            <li>{{ client.getPhone }}</li>
+                        </ul>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+
+
+
+
+
+        </div>
     </body>
 </html>
