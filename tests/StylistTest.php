@@ -102,6 +102,22 @@
             $this->assertEquals("Stella", $test_stylist->getName());
             $this->assertEquals("503-222-4445", $test_stylist->getPhone());
         }
+         function test_delete()
+         {
+             $name = "Sally";
+             $phone = "555-555-5555";
+             $id = null;
+             $test_stylist = new Stylist($name, $phone, $id);
+             $test_stylist->save();
+             $name2 = "Judy";
+             $test_stylist2 = new Stylist($name2, $phone, $id);
+             $test_stylist2->save();
+
+             $test_stylist->delete();
+
+             $this->assertEquals([$test_stylist2], Stylist::getAll());
+
+         }
 
 
 
