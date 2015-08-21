@@ -84,8 +84,23 @@
             $result = Stylist::find($test_stylist->getId());
 
             $this->assertEquals($test_stylist, $result);
+        }
 
+        function test_update()
+        {
+            $name = "Sally";
+            $phone = "555-555-5555";
+            $id = null;
+            $test_stylist = new Stylist($name, $phone, $id);
+            $test_stylist->save();
 
+            $new_name = "Stella";
+            $new_phone = "503-222-4445";
+
+            $test_stylist->update($new_name, $new_phone);
+
+            $this->assertEquals("Stella", $test_stylist->getName());
+            $this->assertEquals("503-222-4445", $test_stylist->getPhone());
         }
 
 
