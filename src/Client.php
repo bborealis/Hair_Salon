@@ -56,6 +56,26 @@
             $this->setId($result_id);
         }
 
+        static function getAll()
+        {
+            $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients;");
+            $clients = array();
+            foreach($returned_clients as $client) {
+                $name = $client['name'];
+                $phone = $client['phone'];
+                $id = $client['id'];
+                $stylist_id = $client['stylist_id'];
+                $new_client = new Client($name, $phone, $id, $stylist_id);
+                array_push($clients, $new_client);
+            }
+            return $clients;
+        }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM clients;");
+        }
+
 
     }
 ?>
