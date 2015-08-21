@@ -54,6 +54,40 @@
                 $this->assertEquals($test_stylist,  $result[0]);
             }
 
+        function test_deleteAll()
+        {
+            $name = "Sally";
+            $phone = "555-555-5555";
+            $id = null;
+            $test_stylist = new Stylist($name, $phone, $id);
+            $test_stylist->save();
+            $name2 = "Judy";
+            $test_stylist2 = new Stylist($name2, $phone, $id);
+            $test_stylist2->save();
+
+            Stylist::deleteAll();
+            $result = Stylist::getAll();
+
+            $this->assertEquals([], $result);
+        }
+
+        function test_find()
+        {
+            $name = "Sally";
+            $phone = "555-555-5555";
+            $test_stylist = new Stylist($name, $phone);
+            $test_stylist->save();
+            $name2 = "Judy";
+            $test_stylist2 = new Stylist($name2, $phone);
+            $test_stylist2->save();
+
+            $result = Stylist::find($test_stylist->getId());
+
+            $this->assertEquals($test_stylist, $result);
+
+
+        }
+
 
 
 
