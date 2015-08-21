@@ -6,12 +6,12 @@
         private $id;
         private $client_id;
 
-        function __construct($name, $phone, $id = null, $client_id)
+        function __construct($name, $phone, $id = null, $stylist_id)
         {
             $this->name = $name;
             $this->phone = $phone;
             $this->id = $id;
-            $this->client_id = $client_id;
+            $this->stylist_id = $stylist_id;
         }
 
         function setName($new_name)
@@ -44,14 +44,14 @@
             return $this->id;
         }
 
-        function getClientId()
+        function getStylistId()
         {
-            return $this->client_id;
+            return $this->stylist_id;
         }
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO clients (name, phone, client_id) VALUES ('{$this->getName()}', '{$this->getPhone()}', {$this->getPhone()});");
+            $GLOBALS['DB']->exec("INSERT INTO clients (name, phone, stylist_id) VALUES ('{$this->getName()}', '{$this->getPhone()}', {$this->getStylistId()});");
             $result_id = $GLOBALS['DB']->lastInsertId();
             $this->setId($result_id);
         }
