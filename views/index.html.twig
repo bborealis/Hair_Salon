@@ -27,7 +27,7 @@
                     {% for stylist in stylists %}
                     <form action='/stylists/{{ stylist.getId }}' method='post'>
                         <input name='_method' type='hidden' value='delete'>
-                        <li><h4><a href='stylists/{{ stylist.getId }}'>{{ stylist.getName }}</a>
+                        <li><h4><a href='stylists/{{ stylist.getId }}'>{{ stylist.getName }}</a></h4>
                             <a class="btn btn-success btn-xs" href="/stylists/{{ stylist.getId }}/edit" role="button">Update</a></li>
                             <ul>
                                 <li>{{ stylist.getPhone }}</li>

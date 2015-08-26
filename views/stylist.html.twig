@@ -29,7 +29,10 @@
                 <p>Here are the clients:</p>
                 <ul>
                     {% for client in clients %}
-                        <li>{{ client.getName }}</li>
+                    <form action='/clients/{{ client.getId}}' method='post'>
+                        <input name='_method' type='hidden' value='delete'>
+                        <li><h4><a href='clients/{{ client.getId }}'>{{ client.getName }}</a></li></h4>
+                        <a class="btn btn-success btn-xs" href="/clients/{{ client.getId }}/edit" role="button">Update</a>
                         <ul>
                             <li>{{ client.getPhone }}</li>
                         </ul>
