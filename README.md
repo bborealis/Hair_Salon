@@ -6,7 +6,7 @@
 
 ## Description
 
-_App where users can add Salon stylists and clients. Stylists details can be updated and deleted. ====>>>In the future salon clients will be able to be updated and deleted._
+App where users can add Salon stylists and clients. Stylists details can be updated and deleted. 
 
 ## Setup
 
