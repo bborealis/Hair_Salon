@@ -36,9 +36,11 @@
                         <ul>
                             <li>{{ client.getPhone }}</li>
                         </ul>
+                    </form>
                     {% endfor %}
                 </ul>
-                <form action='/delete_clients' method='post'>
+
+                <form action='/stylists/{{ stylist.getId }}' method='post'>
                     <button type='submit'>Clear All Clients</button>
                 </form>
 

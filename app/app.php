@@ -68,10 +68,10 @@
     });
 
 
-// this delete all clients isn't working yet
-    $app->post("/delete_clients", function() use ($app) {
+    $app->post("/stylists/{id}", function($id) use ($app) {
         Client::deleteAll();
-        return $app['twig']->render('index.html.twig', array('clients' => Client::getAll()));
+        $stylist = Stylist::find($id);
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
     $app->patch("/stylists/{id}", function($id) use ($app) {
