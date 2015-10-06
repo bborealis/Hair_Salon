@@ -1,8 +1,8 @@
-# _Hair Salon_
+# Hair Salon
 
-##### _App where users can add Salon stylists and clients. 8-21-15_
+##### App where users can add Salon stylists and clients. 8-21-15
 
-#### By _**Brian Borealis and Jenna Navratil**_
+#### By Brian Borealis
 
 ## Description
 
@@ -28,7 +28,7 @@ MySql
 ### Legal
 
 
-Copyright (c) 2015 **_Brian Borealis_**
+Copyright (c) 2015 Brian Borealis
 
 This software is licensed under the MIT license.
 
